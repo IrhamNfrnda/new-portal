@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bal News</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <style>
+    .news-card {
+      margin-bottom: 20px;
+    }
+    .news-card .card-body {
+      padding: 20px;
+    }
+    .news-card .card-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .news-card .card-text {
+      margin-bottom: 10px;
+    }
+    .news-card .card-text span {
+      font-weight: bold;
+    }
+    .news-card .card-text p {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-4 mb-4">Latest News</h1>
+    <div class="row">
+      <% news.forEach(function(newsItem) { %>
+        <div class="col-md-6">
+          <div class="card news-card">
+            <div class="card-body">
+              <h5 class="card-title"><%= newsItem.title %></h5>
+              <p class="card-text"><span>Author:</span> <%= newsItem.author %></p>
+              <p class="card-text"><span>Published:</span> <%= newsItem.created_at.toISOString().slice(0, 10) %></p>
+              <p class="card-text"><%= newsItem.content %></p>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</body>
+</html>
